@@ -34,6 +34,13 @@ export default class App extends Component<{}> {
     if(appState === 'background') {
       //TODO: Schedule background notification 
       console.log('app is in background', this.state.seconds);
+
+      PushNotification.localNotificationSchedule({
+        message: "Your medication reminder " + this.state.seconds, // (required)
+        date: new Date(Date.now() + (this.state.seconds * 1000)) // in 60 secs
+    });        
+
+
     }
   }
 
@@ -41,7 +48,7 @@ export default class App extends Component<{}> {
     return (
       <View style={styles.container}>
           <Text style={styles.welcome}>
-            Choose your Notification time in second(s).
+            Choose your Notification time in second(s)1.
           </Text>
           <Picker 
             style={styles.picker} 

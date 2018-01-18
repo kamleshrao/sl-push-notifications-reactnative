@@ -9,8 +9,8 @@ export default class PushController extends Component {
             },
         });
         PushNotification.localNotificationSchedule({
-            message: "Your medication reminder", // (required)
-            date: new Date(Date.now() + (this.state.seconds * 1000)) // in 60 secs
+            message: "Medication reminder every 60 sec", // (required)
+            date: new Date(Date.now() + (60 * 1000)) // in 60 secs
         });        
     }
 
